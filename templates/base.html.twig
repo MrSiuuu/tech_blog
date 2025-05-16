@@ -12,6 +12,19 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header style="background: #222; color: #fff; padding: 1em 0; text-align: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Logo" style="height:40px; vertical-align:middle;">
+            <span style="font-size:2em; font-weight:bold; margin-left:10px;">Tech Blog</span>
+            <nav style="margin-top: 1em;">
+                <a href="/" style="color:#fff; margin:0 1em; text-decoration:none;">Accueil</a>
+                <a href="/about" style="color:#fff; margin:0 1em; text-decoration:none;">À propos</a>
+            </nav>
+        </header>
+        <main style="min-height:60vh;">
+            {% block body %}{% endblock %}
+        </main>
+        <footer style="background: #222; color: #fff; text-align: center; padding: 1em 0; margin-top:2em;">
+            &copy; {{ "now"|date("Y") }} Tech Blog - Tous droits réservés
+        </footer>
     </body>
 </html>
