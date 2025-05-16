@@ -4,14 +4,16 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ArticleRepository;
 
 class PageController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
+        $articles = $articleRepository->findAll();
         return $this->render('page/index.html.twig', [
-            'controller_name' => 'PageController',
+            'articles' => $articles,
         ]);
     }
 

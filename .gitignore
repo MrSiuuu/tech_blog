@@ -1,4 +1,3 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -23,3 +22,16 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+# Fichiers temporaires d'éditeur
+*~
+*.swp
+*.bak
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Config éditeur (optionnel)
+.idea/
+.vscode/

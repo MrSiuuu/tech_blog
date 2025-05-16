@@ -1,0 +1,32 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}
+    <span style="display:flex; align-items:center;">
+        <img src="/assets/logo-tech-trendz.png" alt="Logo" style="height:40px; margin-right:15px;">
+        Dashboard TechTrendz
+    </span>
+{% endblock %}
+
+{% block main %}
+    <div style="text-align:center; margin-top:2em;">
+        <h2 style="color:#2b3a42;">Bienvenue dans l'administration du blog !</h2>
+        <p style="color:#444; font-size:1.2em;">
+            Utilisez le menu à gauche pour gérer les articles, catégories et commentaires.<br>
+            <span style="font-size:2em;">🚀</span>
+        </p>
+        <div style="margin-top:2em; display:flex; justify-content:center; gap:2em;">
+            <div style="background:#f7f9fa; border-radius:8px; box-shadow:0 1px 6px #eee; padding:1.5em; min-width:180px;">
+                <span style="font-size:2em; color:#2b3a42;">📰</span>
+                <div>Articles</div>
+            </div>
+            <div style="background:#f7f9fa; border-radius:8px; box-shadow:0 1px 6px #eee; padding:1.5em; min-width:180px;">
+                <span style="font-size:2em; color:#2b3a42;">🏷️</span>
+                <div>Catégories</div>
+            </div>
+            <div style="background:#f7f9fa; border-radius:8px; box-shadow:0 1px 6px #eee; padding:1.5em; min-width:180px;">
+                <span style="font-size:2em; color:#2b3a42;">💬</span>
+                <div>Commentaires</div>
+            </div>
+        </div>
+    </div>
+{% endblock %} 

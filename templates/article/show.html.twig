@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+
+    <h2 style="margin-top:2em; color:#2b3a42;">Commentaires</h2>
+    <div style="margin-bottom:2em;">
+        {% if article.comments|length > 0 %}
+            {% for comment in article.comments %}
+                <div style="background:#f7f9fa; border-radius:6px; box-shadow:0 1px 4px #eee; padding:1em; margin-bottom:1em;">
+                    <strong>{{ comment.username }}</strong>
+                    <span style="color:#888; font-size:0.9em;">le {{ comment.createAt|date('d/m/Y H:i') }}</span>
+                    <p style="margin:0.5em 0 0 0;">{{ comment.content }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p style="color:#888;">Aucun commentaire pour cet article.</p>
+        {% endif %}
+    </div>
+
+    <h2>Laisser un commentaire</h2>
+    <div style="background:#f7f9fa; border-radius:8px; box-shadow:0 1px 4px #eee; padding:1.5em; max-width:500px; margin-bottom:2em;">
+        {{ form_start(commentForm) }}
+            <div style="margin-bottom:1em;">
+                {{ form_label(commentForm.username, 'Votre pseudo', {'label_attr': {'style': 'font-weight:bold; color:#2b3a42;'}}) }}<br>
+                {{ form_widget(commentForm.username, {'attr': {'class': 'form-control', 'style': 'width:100%; padding:0.5em; border-radius:4px; border:1px solid #ccc;'}}) }}
+            </div>
+            <div style="margin-bottom:1em;">
+                {{ form_label(commentForm.content, 'Votre commentaire', {'label_attr': {'style': 'font-weight:bold; color:#2b3a42;'}}) }}<br>
+                {{ form_widget(commentForm.content, {'attr': {'class': 'form-control', 'rows': 4, 'style': 'width:100%; padding:0.5em; border-radius:4px; border:1px solid #ccc;'}}) }}
+            </div>
+            <button class="btn" style="background:#2b3a42; color:#fff; border:none; border-radius:4px; padding:0.7em 1.5em; font-weight:bold; cursor:pointer;">Envoyer</button>
+        {{ form_end(commentForm) }}
+    </div>
+
+    <a href="{{ path('app_home') }}">&larr; Retour à la liste des articles</a>
+{% endblock %} 
